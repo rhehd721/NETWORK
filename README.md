@@ -94,3 +94,72 @@
     - 520(Unknown Error, 알 수 없음)
     - 598(네트워크 읽기 시간초과 오류, 알 수 없음)
     - 599(네트워크 연결 시간초과 오류, 알 수 없음)
+
+# NETWORK 용어
+- SYN = synchronize sequence numbers
+- ACK = acknowledgment
+- Broadcast = 1 : N (=불특정 다수)
+- Multicast = 1 : N (=특정 다수)
+- Unicast = 1 : 1
+
+## TCP 3-way Handshake
+양쪽 모두 데이타를 전송할 준비가 되었다는 것을 보장하고, 실제로 데이타 전달이 시작하기전에 한쪽이 다른 쪽이 준비되었다는 것을 알수 있다.
+
+- Client > Server : TCP SYN
+- Server > Client : TCP SYN, ACK
+- Client > Server : TCP ACK
+
+<img src="./3-way.png">
+
+## 4-way Handshaking 
+3-Way handshake는 TCP의 연결을 초기화 할 때 사용한다면, 
+
+4-Way handshake는 세션을 종료하기 위해 수행되는 절차이다.
+
+- Discover : 노트북 -> DHCP Server (DHCP Server야 어디있니? )
+- Offer : DHCP Server -> 노트북 (노트북아 나 여기있어! )
+- Requset : 노트북 -> DHCP Server (DHCP Server야 나 IP좀 할당해줘 )
+- Ack or NAck : DHCP Server -> 노트북 (할당 됐어 or 할당 실패했어 )
+
+<img src="./4-way.png">
+
+# WireShark
+
+## TCP
+
+- (Src Port)Source port = 발신지 포트 필드
+
+- (Dst Port)Destination port = 목적지 포트 필드
+
+- (Seq)Sequence number = 순차 번호 필드
+	순차번호필드는 고유한 번호를 가지며, 이 값으로 TCP 세그먼트에 대한 식별값을 제공하며, 통신 스트림일부가 분실되면 확인을 위해 수신자를 사용가능하게 합니다. 이 순차번호는 패킷에 포함되있는 데이터 만큼 증가하게 됩니다.
+
+- (Ack)Acknowledgment number = 확인 응답 번호 필드
+
+- Header length = 데이터 오프셋 필드
+	데이터 오프셋필드는 TCP헤더의 길이를 정의합니다. 길이는 4byte씩 증가되고, 이 필드의 값이 20이면 80바이트 길이를 갖는다는 것입니다
+
+- URG (Urgent) : 긴급 포인터
+	이 비트는 잘 사용되지는 않습니다. 만약 이 비트가 1로 설정 된 경우 긴급 포인터 필드로 정의되는 특정위치에서 시작하는 패킷의 데이터를 알기 위해 발신자가 원하는 수신자를 나타냅니다.
+
+- ACK (Acknowledgment) : 확인 응답 패킷
+	이 비트가 설정되어 있으면(이 bit가 ‘1’인 경우) 이 패킷은 확인응답이라는 것을 나타냅니다
+
+- PSH (Push) : 네트워크에서 버퍼링 우회와 데이터 즉시 통과
+	이 플래그는 TCP 세그먼트가 발신자나 수신자의 측면에서 버퍼에 유지되면 안 된다는 것을 표시합니다.
+
+- RST (Reset) : 연결 닫기
+	RST 비트 설정에 대한 TCP 패킷은 TCP 연결을 종료, 즉 접속을 강제로 종료합니다. 이 패킷은 이상 종료 시 사용됩니다.
+
+- SYN (Synchronize) : 동기화 순차번호
+	SYN 비트는 송신측과 수신측의 일련번호를 확인할 때 사용되고 이 비트가 1이면 이 패킷은 TCP 핸드셰이크 프로세스의 SYN 단계라는 뜻입니다.
+
+- FIN (Finish) : 트랜잭션 종료
+	Finish 비트는 프로세스가 완료됐고 데이터 스트림이 전송 됐다는 것을 의미합니다.
+
+- window field : 이 필드는 TCP 수신 버퍼를 바이트 크기로 표시합니다. 이 바이트가 0이라면 수신자가 사용가능한 버퍼 공간을 갖지 않겠다는 말이 됩니다. 이 필드에 나타낼 수 있는 최대값은 65,535 입니다.
+
+- checksum field : checksum field는 TCP 헤더와 데이터의 내용뿐만 아니라 IP 헤더로 부터 파생된 의사 헤더에 대한 내용을 수행합니다.
+
+## DNS protocol
+DNS는 단일 전송 메커니즘을 사용하는 다른 애플리케이션과는 다르게 UDP와 TCP를 모두 사용합니다. 일반적인 응답/요청은 UDP를 사용하고 전송 대역이 큰 응답/요청에는 TCP를 사용합니다.
