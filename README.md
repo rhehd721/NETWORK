@@ -1,3 +1,27 @@
+# OSI 7 Layer
+- 물리계층
+    - 전기적, 기계적, 통신케이블
+
+- 데이터 링크 계층
+	- 물리계층에서의 오류를 확인 (맥 주소 통신)
+
+- 네트워크 계층 
+	- 경로선택(Router), 주소지정(IP), 패킷전달
+
+- 전송 계층
+	- 패킷 생성 및 전송 (포장?)
+
+- 세션 계층
+	- 통신하는 사용자를 동기화, 오류복구, 통신을 위한 세션 확립, 유지, 중단
+
+- 표현 계층
+	- 인코딩, 암호화
+
+- 응용 계층 
+	- HTTP, FTP, SMTP, POP3, IMAP, 응용서비스 수행
+
+<br><br>
+
 # HTTP 상태 코드
 
 ## 1xx (조건부 응답)
@@ -95,12 +119,100 @@
     - 598(네트워크 읽기 시간초과 오류, 알 수 없음)
     - 599(네트워크 연결 시간초과 오류, 알 수 없음)
 
+<br><br>
+
 # NETWORK 용어
 - SYN = synchronize sequence numbers
 - ACK = acknowledgment
 - Broadcast = 1 : N (=불특정 다수)
 - Multicast = 1 : N (=특정 다수)
 - Unicast = 1 : 1
+- SSH : Secure Shell Protocol
+	- 데이터 전송, 원격제어
+- FTP : File Transfer Protocol
+	- 파일 전송 프로토콜 (데이터 전송 제어 신호 : 21Port), (실제 파일 전송 : 20Port)
+	- 장점 : 빠르다, 직관적이다
+	- 단점 : 음악, 영상 등의 파일을 다운받는 중간에 열어볼 수 없다, 클라이언트 프로그램을 사용하지 않으면 복잡하다.
+- DNS : Domain Name System
+	- IP 주소를 사용자가 쉽게 접근하기 유용하도록 별도의 별칭을 지정
+- DDNS : Dynamic Domain Name System
+	- 유동 IP  단점을 보안한 것으로 유동 IP 에서 DNS기능을 탑재 (IP를 계속 갱신하기 때문에 Dynamic)
+
+- NTP : Network Time Protocol
+	- 네트워크로 연결되어 있는 컴퓨터 끼리 시간을 동기화 시키는데 사용
+- MAC 필터링
+	- 네트워크상에서 허용되는 컴퓨터를 지정할 수 있는 강력한 보안기능이다.
+- MAC 클론
+	- 네트웍상에 똑같은 mac 어드레스가 2개가 존재하게 되는 것이기 때문에 clone이라 불리워지는 것 같습니다.
+- IPv6 : Internet Protocol Version 6
+	- 6자리로 이루어진 128bit
+- IPv4 : Internet Protocol Version 4
+	- 4자리로 이루어진 32bit
+- Port forwarding
+	- 공인 IP와 사설 IP 사이를 연결
+	DMZ 보다 우선순위를 갖는다
+- DHCP : Dynamic Host Configuration Protocol
+	- 호스트의 IP 주소와 각종 TCP / IP 프로토콜의 기본 설정을 클라이언트에게 자동으로 제공해주는 프로토콜
+	- DHCP 장점
+		PC의 수가 많거나 PC 자체 변동사항이 많은 경우 IP 설정이 자동으로 되기 때문에 효율적으로 사용 가능하고, IP를 자동으로 할당해주기 때문에 IP 충돌을 막을 수 있습니다.
+	- DHCP 단점
+		DHCP 서버에 의존되기 때문에 서버가 다운되면 IP 할당이 제대로 이루어지지 않습니다.
+
+- DMZ : Demilitarized zone
+	- 조직 내부 네트워크와 외부 네트워크 사이에 위치한 서브넷 (방화벽?) (중간막이 ? )
+	- 포트포워딩의 한 종류로 모뎀이나 공유기의 모든 포트를 한 PC에 연결하는 것
+
+- Super DMZ
+	- DMZ와 비슷하지만 외부 IP와 내부 IP가 같아지며 포트포워딩보다도 우선순위를 갖는다.
+
+- WOL : Wake-on-LAN
+	- 네트워크 메세지를 보내 컴퓨터의 전원을 키거나 절전모드에서 깨우는 것
+
+- Log Data = 시스템 운영 일지
+
+- NAT란
+	- 모든 IP 패킷에는 Source IP와 Destination IP가 있다.
+	NAT란, Network Address Translation, 즉 IP 패킷 헤더의 IP 주소를 변경하는 기능 혹은 절차를 뜻한다. 
+	1:1 NAT 혹은 1:다 NAT가 있다.
+
+	- PREROUTING : DNAT을 이용하여 패킷이 생길 때 사용됨
+	- POSTROUTING : SNAT을 이용하여 패킷이 나갈 때 사용됨
+
+- SNAT = 내부 -> 외부
+	- 패킷의 Source 주소를 변경하는 것으로  Source NAT, SNAT, 혹은 IP 마스커레이드라고 한다.
+	인터넷으로 나가는 패킷의 Source IP를 G/W의 Public IP로 바꾼다.
+- DNAT = 외부 -> 내부
+	- Destination IP 주소를 변경하여 내부에 접근할 수 있도록 패킷을 변경한다.
+	대표적인 것은 Load Balancer이다. 
+
+
+- BSSID : Basic Service Set Identifier
+	- 무선LAN 표준인 802.11에서 기본 서비스 열역(BSS)를 식별하는 48비트의 식별자 또는 네트워크 ID를 말한다. 
+
+- SSID : Service Set IDentifier
+	- 무선랜을 통해 전송되는 패킷들의 각 헤더에 덧붙여지는 32바이트 길이의 고유 식별자
+
+
+- 라우팅(영어: routing)
+	- 어떤 네트워크 안에서 통신 데이터를 보낼 때 최적의 경로를 선택하는 과정이다.
+
+- 로드 밸런서(Load Balancer)
+	- 여러 대의 Server에게 균등하게 Traffic을 분산시켜주는 역할을 하는 것이 Load Balancer입니다.
+
+- 방화벽(firewall)
+	- 네트워크 트래픽을 모니터링하고 제어하는 네트워크 보안 시스템이다.
+	서로 다른 네트워크를 지나는 데이터를 허용하거나 거부하거나 검열, 수정하는 하드웨어나 소프트웨어 장치이다
+
+- SNR(Signal Noise Ratio : 신호대 잡음비)
+	- 일정 세력의 신호가 수신측에 도착하여 나타난 신호전력 대 잡음전력 간의 비
+	- 잡음이 신호에 대한 영향을 정량적으로 나타낸 척도
+
+- CMS(Contents Management System)
+	- 인터넷이나 컴퓨터 통신 등을 통하여 제공되는 각종 정보나 그 내용물들을 관리하는 정의된 목적을 달성하기 위한 통합 요소들의 집합체"이다
+
+	- 즉, 개발지식이 없는 사람도 홈페이지를 만들고 운영할 수 있는 툴(?)이라고 할 수 있다.
+
+<br><br>
 
 ## TCP 3-way Handshake
 양쪽 모두 데이타를 전송할 준비가 되었다는 것을 보장하고, 실제로 데이타 전달이 시작하기전에 한쪽이 다른 쪽이 준비되었다는 것을 알수 있다.
@@ -122,6 +234,8 @@
 - Ack or NAck : DHCP Server -> 노트북 (할당 됐어 or 할당 실패했어 )
 
 <img src="./4-way.png">
+
+<br><br>
 
 # WireShark
 
