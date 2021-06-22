@@ -3,10 +3,13 @@
     - 전기적, 기계적, 통신케이블
 
 - 데이터 링크 계층
-	- 물리계층에서의 오류를 확인 (맥 주소 통신)
+	- 물리계층에서의 오류를 확인 (맥 주소 통신) = 정보의 오류와 흐름 관라
+    - 전송 단위 = 프레임
+    - 브리지, 스위치 등...
 
 - 네트워크 계층 
 	- 경로선택(Router), 주소지정(IP), 패킷전달
+    - 실제 데이터에 해더와 같은 정보가 붙어 크기가 커지게 된다.
 
 - 전송 계층
 	- 패킷 생성 및 전송 (포장?)
@@ -122,11 +125,18 @@
 <br><br>
 
 # NETWORK 용어
-- SYN = synchronize sequence numbers
-- ACK = acknowledgment
+- NAT = Network Address Translation
+    - 내부 네트워크에서 공인되지 않은 IP주소를 사용하고 인터넷으로 나갈 때 공인 주소를 가지고 나간다.
+- PAT = Port Address Translation
+    - 동일 IP 주소를 가지고 있는 여려명ㅇ의 접속자를 포트 넘버를 통해 구별
 - Broadcast = 1 : N (=불특정 다수)
+    - CPU 성능 저하
 - Multicast = 1 : N (=특정 다수)
 - Unicast = 1 : 1
+    - CPU 성능 유지
+- MAC Address
+    - 48bit (6octet) = 24bit 제조사코드 / 24bit 일련번호
+    - 스위치, 라우터, 서버에도 MAC 주소가 존재한다.
 - SSH : Secure Shell Protocol
 	- 데이터 전송, 원격제어
 - FTP : File Transfer Protocol
@@ -235,6 +245,20 @@
 
 <img src="./4-way.png">
 
+## Byte Order
+- Big Endian
+- Little Endian
+
+## Cross Compiler
+다른 플렛폼에서(windows, Mac) 다른 플렛폼의(Android, IOS, Embedded) 실행 파일을 만들어 주는 컴파일러를 가르켜 크로스 컴파일러 라고 합니다.
+
+
+- Linux에서 Embedded 실행파일을 만들 때,
+- windows에서 IOS 실행파일을 만들 때,
+- windows에서 Android 실행파일을 만들 때,
+- windows에서 Arduino 실행파일을 만들 때 등....
+
+
 <br><br>
 
 # WireShark
@@ -318,7 +342,7 @@ Urgent Point : URG가 전송 되는 경우 데이터의 마지막 Byte의 일련
 - RST (Reset) : 연결 닫기
 	RST 비트 설정에 대한 TCP 패킷은 TCP 연결을 종료, 즉 접속을 강제로 종료합니다. 이 패킷은 이상 종료 시 사용됩니다.
 
-- SYN (Synchronize) : 동기화 순차번호
+- SYN (synchronize sequence numbers) : 동기화 순차번호
 	SYN 비트는 송신측과 수신측의 일련번호를 확인할 때 사용되고 이 비트가 1이면 이 패킷은 TCP 핸드셰이크 프로세스의 SYN 단계라는 뜻입니다.
 
 - FIN (Finish) : 트랜잭션 종료
@@ -383,4 +407,3 @@ UDP는 통신프로토콜이며 비연결형 전송 서비스를 제공합니다
     - type
     - code
     - checksum
-
