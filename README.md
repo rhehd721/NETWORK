@@ -128,7 +128,7 @@
 - NAT = Network Address Translation
     - 내부 네트워크에서 공인되지 않은 IP주소를 사용하고 인터넷으로 나갈 때 공인 주소를 가지고 나간다.
 - PAT = Port Address Translation
-    - 동일 IP 주소를 가지고 있는 여려명ㅇ의 접속자를 포트 넘버를 통해 구별
+    - 동일 IP 주소를 가지고 있는 여려명의 접속자를 포트 넘버를 통해 구별
 - Broadcast = 1 : N (=불특정 다수)
     - CPU 성능 저하
 - Multicast = 1 : N (=특정 다수)
