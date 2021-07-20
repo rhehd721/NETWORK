@@ -467,4 +467,3 @@ UDP는 통신프로토콜이며 비연결형 전송 서비스를 제공합니다
     - 10xx xxxx. xxxx xxxx. xxxx xxxx. xxxx xxxx
 - C클래스 ( 192.0.0 ~ 223.255.255 시작 )
     - 110x xxxx. xxxx xxxx. xxxx xxxx. xxxx xxxx
-- D클래스
