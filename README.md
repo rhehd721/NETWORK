@@ -165,7 +165,7 @@
 - MAC 필터링
 	- 네트워크상에서 허용되는 컴퓨터를 지정할 수 있는 강력한 보안기능이다.
 - MAC 클론
-	- 네트웍상에 똑같은 mac 어드레스가 2개가 존재하게 되는 것이기 때문에 clone이라 불리워지는 것 같습니다.
+	- 네트워크상에 똑같은 mac 어드레스가 2개가 존재하게 되는 것이기 때문에 clone이라 불리워지는 것 같습니다.
 - IPv6 : Internet Protocol Version 6
 	- 16bit 8자리로 이루어진 128bit
 - IPv4 : Internet Protocol Version 4
