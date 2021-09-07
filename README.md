@@ -311,6 +311,13 @@
 
 # WireShark
 
+## TCP/IP 계층 모델 주요 프로토콜
+| 계층  | 프로토콜 |
+| :-----------: | :-----------: |
+| Application     | DNS, TELNET, FTP, NFS, DHCP          |
+| Transport    | TCP, UDP      |
+| Network     | ICMP, IGMP, IP, ARP |
+
 ## TCP
 Source Port : 패킷을 송신하는 Source의 포트번호
 
