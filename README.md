@@ -472,6 +472,17 @@ UDP는 통신프로토콜이며 비연결형 전송 서비스를 제공합니다
     - code
     - checksum
 
+- 주요 Error Reporting
+	- Destinamtion Unreachable (목적지 도달 불가)
+	- Redirection (재지정 메세지)
+	- Neighbor Solicitation and Advertisement (이웃 요청과 광고 메세지)
+	- Time Exceed (시간초과)
+
+## IGMP(Internet Group Management Protocol, 인터넷 그룹 관리 프로토콜)
+- 호스트가 멀티캐스트 그룹 구성원을 인접한 스위치 및 라우터로 광고할 수 있게 해주는 프로토콜
+- TCP/IP 프로토콜 집합이 동적 멀티캐스팅을 수행하기 위해 사용하는 표준 프로토콜
+
+
 ## IP Class
 하나의 IP주소에서 네트워크 영역과 호스트 영역을 나누는 방법이자, 약속
 
