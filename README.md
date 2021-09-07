@@ -458,6 +458,15 @@ UDP는 통신프로토콜이며 비연결형 전송 서비스를 제공합니다
 
 -ICMP(Internet Control Message Protocol, 인터넷 제어 메시지 프로토콜) 은 네트워크에서 오류,경고,알림에 대한 메시지를 전달하는 목적으로 사용됩니다.
 
+- ICMP 사용(활용) 명령어 
+	- Ping 명령어 : 상대방 호스트의 작동 여부 및 응답시간 측정하는데 사용
+	- Echo Request (ICMP 질의메세지 요청)
+	- Echo Reply (ICMP 응답메세지 요청)
+
+- Tracert명령어 : 목적지까지의 라우팅 경로 추적을 하기 위해 사용 
+	- Time Exceeded 확인 가능  (이 내용은 추후에 다루도록 할게요 ~)
+
+
 - ICMP 패킷 IP 헤더
     - type
     - code
